@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.forms import ModelForm
 from .models import Post
 
+def index(request):
+    return redirect('sample_app:read_post')
+
 def create_post(request):
     """
     新たなデータを作成する
@@ -18,6 +21,7 @@ def create_post(request):
             post.save()
 
         return redirect('sample_app:read_post')
+    
     
 def read_post(request):
     """
